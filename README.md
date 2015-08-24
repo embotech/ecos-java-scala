@@ -17,6 +17,6 @@ What's available in the project
 1. MacOSX and Linux JNI libraries for ECOS.
 2. amd and ldl JNI libraries are licensed under LGPL honoring original Tim Davis's license
 3. All Java/Scala packages are licensed under Apache
-+ Java driver for ECOS SocpSolver is com.github.ecos.RunECOS
-+ Scala driver for Quadratic Programming Solver is com.github.ecos.QpSolver
+   + Java driver for ECOS SocpSolver is com.github.ecos.RunECOS
+   + Scala driver for Quadratic Programming Solver is com.github.ecos.QpSolver
 
