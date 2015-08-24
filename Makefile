@@ -18,8 +18,22 @@ GENERATED_HEADERS=${SRC}/native/com_github_ecos_NativeECOS.h
 GENERATED_SOURCES=${SRC}/native/NativeECOS.c
 
 include ecos/ecos.mk
-#jni headers specific for MacOSX 10.9
-C = $(CC) $(CFLAGS) -I/System/Library/Frameworks/JavaVM.framework/Headers/ -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config
+
+#jni headers supported for Darwin(MacOSX) and Linux
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Darwin)
+# we're on apple
+JNIHEADER=/System/Library/Frameworks/JavaVM.framework/Headers
+JNIPATH=src/main/resources/lib/static/Mac\ OS\ X/x86_64
+endif
+ifeq ($(UNAME),Linux)
+# we're on linux
+JNIHEADER=/System/Library/Frameworks/JavaVM.framework/Headers
+JNIPATH=src/main/resources/lib/static/Linux/amd64
+endif
+
+C = $(CC) $(CFLAGS) -I$(JNIHEADER) -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config
 TEST_INCLUDES = -Itest -Itest/quadratic
 
 # Compile all C code, including the C-callable routine
@@ -39,10 +53,11 @@ AMD = amd_aat amd_1 amd_2 amd_dump amd_postorder amd_post_tree amd_defaults \
 AMDL = $(addsuffix .o, $(subst amd_,amd_l_,$(AMD)))	
 # build ECOS, make it OS indepedent
 ecos: jniecos.o ecos.o kkt.o cone.o spla.o timer.o preproc.o splamm.o ctrlc.o equil.o expcone.o wright_omega.o
-	$(C) -shared -o libecos.so jniecos.o ecos.o kkt.o cone.o spla.o timer.o preproc.o splamm.o ctrlc.o equil.o expcone.o wright_omega.o external/ldl/ldl.o external/amd/amd_global.o external/amd/amd_l_1.o \
+	$(C) -shared -o libecos.so jniecos.o ecos.o kkt.o cone.o spla.o timer.o preproc.o splamm.o ctrlc.o equil.o expcone.o wright_omega.o \
+	external/ldl/ldl.o external/amd/amd_global.o external/amd/amd_l_1.o \
 	external/amd/amd_l_2.o external/amd/amd_l_aat.o external/amd/amd_l_control.o external/amd/amd_l_defaults.o external/amd/amd_l_dump.o external/amd/amd_l_info.o \
 	external/amd/amd_l_order.o external/amd/amd_l_post_tree.o external/amd/amd_l_postorder.o external/amd/amd_l_preprocess.o external/amd/amd_l_valid.o
-	cp libecos.so src/main/resources/lib/static/Mac\ OS\ X/x86_64/libecos.jnilib
+	cp libecos.so $(JNIPATH)/libecos.jnilib
 jniecos.o: ${GENERATED_SOURCES} ${GENERATED_HEADERS}
 	$(C) -fPIC -c ${GENERATED_SOURCES} -o jniecos.o
 
@@ -120,4 +135,4 @@ clean:
 purge: clean
 	( cd external/ldl    ; $(MAKE) purge )
 	( cd external/amd    ; $(MAKE) purge )	
-	- $(RM) libecos.so src/main/resources/lib/static/Mac\ OS\ X/x86_64/libecos.jnilib runecos
+	- $(RM) libecos.so $(JNIPATH)/libecos.jnilib runecos
