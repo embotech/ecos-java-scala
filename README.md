@@ -87,19 +87,21 @@ ECOS 2.0.2 - (C) embotech GmbH, Zurich Switzerland, 2012-15. Web: www.embotech.c
 OPTIMAL (within feastol=9.0e-10, reltol=2.1e-10, abstol=1.3e-08).
 Runtime: 0.000610 seconds.
 
-exit flag 0
-2.5000097269585586
-2.50000972695855
-2.500009726958559
-2.5000097269585475
-2.5000097269585537
-2.5000097269585533
-2.5000097269585475
-2.500009726958548
-2.500009726958555
-2.5000097269585444
+Solution
 
-    + Unconstrained quadratic: Result and Runtime comparisons with BFGS and DPOSV
+    2.5000097269585586
+    2.50000972695855
+    2.500009726958559
+    2.5000097269585475
+    2.5000097269585537
+    2.5000097269585533
+    2.5000097269585475
+    2.500009726958548
+    2.500009726958555
+    2.5000097269585444
+
+Supported features
+    + Unconstrained quadratic minimization: Result and Runtime comparisons with BFGS and DPOSV
     + Quadratic program with bound constraints
     + Quadratic program with L1 constraints
     + Quadratic program with equality constraints
