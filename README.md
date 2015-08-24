@@ -101,6 +101,7 @@ Solution
     2.5000097269585444
 
 Supported features
+
     + Unconstrained quadratic minimization: Result and Runtime comparisons with BFGS and DPOSV
     + Quadratic program with bound constraints
     + Quadratic program with L1 constraints
