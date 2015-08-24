@@ -24,16 +24,15 @@ UNAME := $(shell uname)
 
 ifeq ($(UNAME), Darwin)
 # we're on apple
-JNIHEADER=/System/Library/Frameworks/JavaVM.framework/Headers
+C = $(CC) $(CFLAGS) -I/System/Library/Frameworks/JavaVM.framework/Headers -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config
 JNIPATH=src/main/resources/lib/static/Mac\ OS\ X/x86_64
 endif
 ifeq ($(UNAME),Linux)
 # we're on linux
-JNIHEADER=/opt/bda/jdk/include
+C = $(CC) $(CFLAGS) -I/opt/bda/jdk/include -I/opt/bda/jdk/include/linux -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config
 JNIPATH=src/main/resources/lib/static/Linux/amd64
 endif
 
-C = $(CC) $(CFLAGS) -I$(JNIHEADER) -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config
 TEST_INCLUDES = -Itest -Itest/quadratic
 
 # Compile all C code, including the C-callable routine
