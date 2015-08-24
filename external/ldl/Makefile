@@ -5,12 +5,11 @@
 default: all
 
 ECOS = ../../ecos
-LDLSRC = $(ECOS)/external/ldl
-SUITESPARSESRC=$(ECOS)/external/SuiteSparse_config
+SUITESPARSESRC=../SuiteSparse_config
 
 include $(ECOS)/ecos.mk
 
-INCLUDES = -I$(SUITESPARSESRC) -I$(LDLSRC)/include
+INCLUDES = -I$(SUITESPARSESRC) -I./include -I$(ECOS)/include
 
 C = $(CC) $(CFLAGS) $(INCLUDES)
 
@@ -20,8 +19,8 @@ all: libldl.so
 # the ldl library:
 #-------------------------------------------------------------------------------
 
-libldl.so: $(LDLSRC)/src/ldl.c $(LDLSRC)/include/ldl.h
-	$(C) -fPIC -DLDL_LONG -c $(LDLSRC)/src/ldl.c -o ldl.o
+libldl.so: src/ldl.c include/ldl.h
+	$(C) -fPIC -DLDL_LONG -c src/ldl.c -o ldl.o
 	$(C) -shared -o libldl.so ldl.o
 
 purge: 
