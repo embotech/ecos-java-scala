@@ -35,7 +35,7 @@ Examples:
 mvn install generates the code jar.
 mvn assembly:single generates the dependency jar.
 
-1. SOCP Example (Java):
+SOCP Example (Java):
 
 The data for SOCP program is available from ecos/include/data.h
 
@@ -65,7 +65,7 @@ Runtime: 0.001540 seconds.
 exit flag 0
 Optimal
 
-2. Quadratic Programming Examples (Scala):
+Quadratic Programming Examples (Scala):
 
 java -cp ./target/ecos-0.0.1-SNAPSHOT.jar:./target/ecos-0.0.1-SNAPSHOT-job.jar com.github.ecos.QpSolver 100
 
