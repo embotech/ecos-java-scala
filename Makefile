@@ -29,7 +29,7 @@ JNIPATH=src/main/resources/lib/static/Mac\ OS\ X/x86_64
 endif
 ifeq ($(UNAME),Linux)
 # we're on linux
-JNIHEADER=/System/Library/Frameworks/JavaVM.framework/Headers
+JNIHEADER=/opt/bda/jdk/include
 JNIPATH=src/main/resources/lib/static/Linux/amd64
 endif
 
