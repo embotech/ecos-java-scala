@@ -102,7 +102,7 @@ Solution
 
 Supported features
 
-    + Unconstrained quadratic minimization: Result and Runtime comparisons with BFGS and DPOSV
-    + Quadratic program with bound constraints
-    + Quadratic program with L1 constraints
-    + Quadratic program with equality constraints
+    1. Unconstrained quadratic minimization
+    2. Quadratic program with bound constraints
+    3. Quadratic program with L1 constraints
+    4. Quadratic program with equality constraints
