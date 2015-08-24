@@ -62,9 +62,6 @@ ECOS 2.0.2 - (C) embotech GmbH, Zurich Switzerland, 2012-15. Web: www.embotech.c
 OPTIMAL (within feastol=7.3e-13, reltol=5.9e-09, abstol=1.1e-09).
 Runtime: 0.001540 seconds.
 
-exit flag 0
-Optimal
-
 Quadratic Programming Examples (Scala):
 
 java -cp ./target/ecos-0.0.1-SNAPSHOT.jar:./target/ecos-0.0.1-SNAPSHOT-job.jar com.github.ecos.QpSolver 100
