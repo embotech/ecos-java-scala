@@ -6,7 +6,7 @@ default: libamd.so
 
 ECOS = ../../ecos
 AMDSRC = $(ECOS)/external/amd
-SUITESPARSESRC=$(ECOS)/external/SuiteSparse_config
+SUITESPARSESRC=../SuiteSparse_config
 
 include $(ECOS)/ecos.mk
 
