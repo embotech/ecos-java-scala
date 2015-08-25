@@ -24,12 +24,12 @@ UNAME := $(shell uname)
 
 ifeq ($(UNAME), Darwin)
 # we're on apple
-C = $(CC) $(CFLAGS) -I/System/Library/Frameworks/JavaVM.framework/Headers -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config
+C = $(CC) $(CFLAGS) -I/System/Library/Frameworks/JavaVM.framework/Headers -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config $(LDFLAGS)
 JNIPATH=src/main/resources/lib/static/Mac\ OS\ X/x86_64
 endif
 ifeq ($(UNAME),Linux)
 # we're on linux
-C = $(CC) $(CFLAGS) -I/opt/bda/jdk/include -I/opt/bda/jdk/include/linux -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config
+C = $(CC) $(CFLAGS) -I/opt/bda/jdk/include -I/opt/bda/jdk/include/linux -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config $(LDFLAGS)
 JNIPATH=src/main/resources/lib/static/Linux/amd64
 endif
 
