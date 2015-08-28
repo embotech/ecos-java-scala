@@ -117,6 +117,6 @@ The following people have been, and are, involved in the development of ecos-jav
 The main technical idea behind ECOS is described in a short [paper](http://www.stanford.edu/~boyd/papers/ecos.html). 
 More details are given in Alexander Domahidi's [PhD Thesis](http://e-collection.library.ethz.ch/view/eth:7611?q=domahidi) in Chapter 9.
 
-Integration of ecos-java-scala with Spark was demonstrated at Spark Summit 2014 (http://spark-summit.org/2014/talk/quadratic-programing-solver-for-non-negative-matrix-factorization-with-spark).
+Integration of ecos-java-scala with Spark was demonstrated at [Spark Summit 2014](http://spark-summit.org/2014/talk/quadratic-programing-solver-for-non-negative-matrix-factorization-with-spark).
 
 We will provide a reference implementation for runnning distributed Quadratic Programming using Spark in this repository. Please keep checking back.
