@@ -1,9 +1,9 @@
 ecos-java-scala
-===============
+----
 
 Java/Scala drivers to Second Order Cone Programming (ECOS) Solver
 
-====
+----
 LICENSE
 
 All contributions by Debasish Das copyright © 2015 Verizon, and are licensed under Apache. See 
@@ -11,16 +11,16 @@ LICENSE for more details. ecos-java-scala project uses ecos as a submodule which
 under GNU GPL V3. See https://github.com/embotech/ecos/blob/master/COPYING for more details on
 ECOS licensing.
 
-====
+----
 What's available in the project
 
 1. MacOSX and Linux JNI libraries for ECOS.
 2. amd and ldl JNI libraries are licensed under LGPL honoring original Tim Davis's license
-3. All Java/Scala packages are licensed under Apache
+3. Java/Scala packages are licensed under Apache
    + Java driver for ECOS SocpSolver is com.github.ecos.RunECOS
    + Scala driver for Quadratic Programming Solver is com.github.ecos.QpSolver
 
-===
+----
 Build instructions: 
 
 The published jar provides jnilib for MacOSX and Linux. For other OS change the
@@ -29,10 +29,11 @@ jnilib. ant javah uses build.xml to generate the JNI header. Based on the JNI he
 the native binding needs to be implemented. ant flow is useful for exposing additional
 functionalities from amd, ldl and in general csparse.
 
-===
+----
 Examples:
 
 mvn install generates the code jar.
+
 mvn assembly:single generates the dependency jar.
 
 SOCP Example (Java):
@@ -40,6 +41,7 @@ SOCP Example (Java):
 The data for SOCP program is available from ecos/include/data.h
 
 java -cp ./target/ecos-0.0.1-SNAPSHOT.jar:./target/ecos-0.0.1-SNAPSHOT-job.jar com.github.ecos.RunECOS
+
 ECOS version2.0.2
 
 ECOS 2.0.2 - (C) embotech GmbH, Zurich Switzerland, 2012-15. Web: www.embotech.com/ECOS
@@ -98,8 +100,23 @@ Solution
     2.5000097269585444
 
 Supported features
-
     1. Unconstrained quadratic minimization
     2. Quadratic program with bound constraints
     3. Quadratic program with L1 constraints
     4. Quadratic program with equality constraints
+
+Credits
+----
+
+The following people have been, and are, involved in the development of ecos-java-scala:
+
++ Debasish Das
++ Stepen Boyd
++ Alexander Domahidi
+
+The main technical idea behind ECOS is described in a short [paper](http://www.stanford.edu/~boyd/papers/ecos.html). 
+More details are given in Alexander Domahidi's [PhD Thesis](http://e-collection.library.ethz.ch/view/eth:7611?q=domahidi) in Chapter 9.
+
+Integration of ecos-java-scala with Spark was demonstrated at Spark Summit 2014 http://spark-summit.org/2014/talk/quadratic-programing-solver-for-non-negative-matrix-factorization-with-spark
+
+We will provide a reference implementation for runnning distributed Quadratic Programming using Spark in this repository. Please keep checking back.
