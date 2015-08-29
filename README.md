@@ -101,13 +101,10 @@ Solution
 
 Supported features
 
-    1. Unconstrained quadratic minimization
-    
-    2. Quadratic program with bound constraints
-    
-    3. Quadratic program with L1 constraints
-    
-    4. Quadratic program with equality constraints
++ Unconstrained quadratic minimization
++ Quadratic program with bound constraints
++ Quadratic program with L1 constraints
++ Quadratic program with equality constraints
 
 Credits
 ----
@@ -115,7 +112,7 @@ Credits
 The following people have been, and are, involved in the development of ecos-java-scala:
 
 + Debasish Das
-+ Stepen Boyd
++ Stephen Boyd
 + Alexander Domahidi
 
 The main technical idea behind ECOS is described in a short [paper](http://www.stanford.edu/~boyd/papers/ecos.html). 

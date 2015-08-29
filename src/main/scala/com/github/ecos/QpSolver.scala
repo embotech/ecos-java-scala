@@ -53,7 +53,6 @@ import breeze.optimize.OWLQN
  *     
  * For unconstrained quadratic program (least squares) an interesting comparison will be with the Ceres solver from Google
  * http://ceres-solver.org. Look at how they are handling dense Hessian ? 
- * 
  *
  */
 
@@ -79,6 +78,7 @@ class QpSolver(nHessian: Int, nLinear: Int = 0, diagonal: Boolean = false,
   var solveTime: Long = 0
   
   var bounds = 0
+
   if (lbFlag) bounds += 1
   if (ubFlag) bounds += 1
   
@@ -403,6 +403,7 @@ object QpSolver {
       inequalityBuilder.add(2 * i + 1, i, 1)
       inequalityBuilder.add(2 * i + 1, l1 + i, -1)
     }
+
     val qpSolverL1 = new QpSolver(l1, l1, true, None, Some(inequalityBuilder.result))
     val Hl1 = Array.fill[Double](l1)(2.0)
     val fl1 = Array.fill[Double](2 * l1)(-6.0)
@@ -419,7 +420,5 @@ object QpSolver {
     val qpML = new QpSolver(ml)
     val (statusMl, resultMl) = qpML.solve(Hml, fml)
     for (i <- 0 until ml) println(resultMl(i))
-
-    //TO DO : Add a testcase for L1 with dense H matrix
   }
 }
