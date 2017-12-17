@@ -1,12 +1,13 @@
 ecos-java-scala
 ----
 
-Java/Scala drivers to Second Order Cone Programming (ECOS) Solver
+Java/Scala drivers to Second Order Cone Programming (ECOS) Solver and integration with Spark
+Distributed Matrix Factorization
 
 ----
 LICENSE
 
-All contributions by Debasish Das copyright © 2015 Verizon, and are licensed under Apache. See 
+All contributions by Debasish Das copyright © 2017 Verizon, and are licensed under Apache. See 
 LICENSE for more details. ecos-java-scala project uses ecos as a submodule which is licensed
 under GNU GPL V3. See https://github.com/embotech/ecos/blob/master/COPYING for more details on
 ECOS licensing.
@@ -18,7 +19,7 @@ What's available in the project
 2. amd and ldl JNI libraries are licensed under LGPL honoring original Tim Davis's license
 3. Java/Scala packages are licensed under Apache
    + Java driver for ECOS SocpSolver is com.github.ecos.RunECOS
-   + Scala driver for Quadratic Programming Solver is com.github.ecos.QpSolver
+   + Scala driver for Quadratic Programming Solver is com.github.ecos.optim.QpSolver
 
 ----
 Build instructions: 
@@ -66,7 +67,7 @@ Runtime: 0.001540 seconds.
 
 Quadratic Programming Examples (Scala):
 
-java -cp ./target/ecos-0.0.1-SNAPSHOT.jar:./target/ecos-0.0.1-SNAPSHOT-job.jar com.github.ecos.QpSolver 100
+java -cp ./target/ecos-0.0.1-SNAPSHOT.jar:./target/ecos-0.0.1-SNAPSHOT-job.jar com.github.ecos.optim.QpSolver 100
 
 Generate Qp with L1 constraint (Breeze OWLQN testcase)
 
@@ -106,6 +107,24 @@ Supported features
 + Quadratic program with L1 constraints
 + Quadratic program with equality constraints
 
+Spark Integration
+----
+
+Distributed Matrix Factorization is reformulated as a bi-convex optimization using alternating minimization and the
+least square formulation is solved using a quadratic program powered by ECOS through com.github.ecos.QpSolver
+
+mvn test -DwildcardSuites=com.github.ecos.factorization.ALSSuite runs the ALS tests. 
+
+Unit tests are added for non-negativity constraints to support intepretable dimensionality reduction and topic
+modeling use-cases.
+
+ALS.setQpProblem(problem: Int) sets up specific constraints on least square objective
+problem=1 Least square solution
+problem=2 Least square solution with positive factors
+problem=3 Least square solution with bounds
+problem=4 Least square solution with probability simplex
+problem=5 Least square solution with L1 constraint
+
 Credits
 ----
 
@@ -120,4 +139,3 @@ More details are given in Alexander Domahidi's [PhD Thesis](http://e-collection.
 
 Integration of ecos-java-scala with Spark was demonstrated at [Spark Summit 2014](https://spark-summit.org/2014/quadratic-programing-solver-for-non-negative-matrix-factorization)
 
-We will provide a reference implementation for runnning distributed Quadratic Programming using Spark in this repository. Please keep checking back.
