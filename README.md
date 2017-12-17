@@ -119,11 +119,11 @@ Unit tests are added for non-negativity constraints to support intepretable dime
 modeling use-cases.
 
 ALS.setQpProblem(problem: Int) sets up specific constraints on least square objective
-problem=1 Least square solution
-problem=2 Least square solution with positive factors
-problem=3 Least square solution with bounds
-problem=4 Least square solution with probability simplex
-problem=5 Least square solution with L1 constraint
++ problem=1 Least square solution
++ problem=2 Least square solution with positive factors
++ problem=3 Least square solution with bounds
++ problem=4 Least square solution with probability simplex
++ problem=5 Least square solution with L1 constraint
 
 Credits
 ----
