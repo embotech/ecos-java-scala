@@ -22,14 +22,12 @@
     <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <java.version>1.7</java.version>
-      <jblas.version>1.2.3</jblas.version>
-      <scala.binary.version>2.10</scala.binary.version>
+      <jblas.version>1.2.5</jblas.version>
+      <scala.binary.version>2.12</scala.binary.version>
       <compiler.plugin.version>2.3.2</compiler.plugin.version>
       <dependency.plugin.version>2.6</dependency.plugin.version>
       <surefire.plugin.version>2.12</surefire.plugin.version>
       <javadoc.plugin.version>2.8</javadoc.plugin.version>
-      <spark.version>1.6.0</spark.version>
-      <hadoop.version>2.5.0</hadoop.version>
     </properties>
     
     <scm>
@@ -55,7 +53,7 @@
       <dependency>
 	<groupId>org.scalatest</groupId>
 	<artifactId>scalatest_${scala.binary.version}</artifactId>
-	<version>2.2.4</version>
+	<version>3.0.5</version>
 	<scope>test</scope>
       </dependency>
       <dependency>
@@ -80,35 +78,7 @@
 	<version>1.1</version>
       </dependency>
       
-      <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-core_${scala.binary.version}</artifactId>
-        <version>${spark.version}</version>
-      </dependency>
-      
-      <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-core_${scala.binary.version}</artifactId>
-        <type>test-jar</type>
-        <scope>test</scope>
-        <version>${spark.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-mllib_${scala.binary.version}</artifactId>
-        <version>${spark.version}</version>
-      </dependency>
-      
-      <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-mllib_${scala.binary.version}</artifactId>
-        <type>test-jar</type>
-        <scope>test</scope>
-        <version>${spark.version}</version>
-      </dependency>
-    </dependencies>
-    
+  </dependencies>
     <build>
       <plugins>
       <!-- compiles scala -->
