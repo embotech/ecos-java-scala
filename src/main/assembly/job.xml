@@ -15,7 +15,6 @@
       <useProjectArtifact>false</useProjectArtifact>
       <outputDirectory>/</outputDirectory>
       <excludes>
-        <exclude>org.apache.hadoop:hadoop-core</exclude>
       </excludes>
     </dependencySet>
   </dependencySets>

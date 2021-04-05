@@ -31,7 +31,7 @@ public class NativeECOS {
 	                + "in the path (for Windows: PATH, for Linux: LD_LIBRARY_PATH).");
 	        // Ok, and now load it! 
 	        LibraryLoader loader = new LibraryLoader();
-	        loader.loadLibrary("ecos", false, false);
+	        loader.loadLibrary("ecos", false);
 		}
 	}
 	
