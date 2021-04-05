@@ -47,8 +47,8 @@
     <dependencies>
       <dependency>
 	<groupId>org.scalanlp</groupId>
-	<artifactId>breeze_2.10</artifactId>
-	<version>0.8.1</version>
+	<artifactId>breeze_2.12</artifactId>
+	<version>1.1</version>
       </dependency>
       <dependency>
 	<groupId>org.scalatest</groupId>
@@ -59,7 +59,7 @@
       <dependency>
 	<groupId>org.scala-lang</groupId>
 	<artifactId>scala-library</artifactId>
-	<version>2.10.3</version>
+	<version>2.12.10</version>
       </dependency>
       <dependency>
 	<groupId>junit</groupId>

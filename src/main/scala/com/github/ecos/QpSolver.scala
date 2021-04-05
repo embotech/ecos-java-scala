@@ -290,7 +290,7 @@ object QpSolver {
     def optimizeWithLBFGS(init: DenseVector[Double]) = {
       val f = new DiffFunction[DenseVector[Double]] {
         def calculate(x: DenseVector[Double]) = {
-          (norm((x - 3.0) :^ 2.0, 1), (x * 2.0) - 6.0)
+          (norm((x - 3.0) ^:^ 2.0, 1), (x * 2.0) - 6.0)
         }
       }
       val result = lbfgs.minimize(f, init)
@@ -378,7 +378,7 @@ object QpSolver {
     assert(abs(sum - 0.5) < 1e-4)
 
     /* Test L1 constraints with OWLQN */
-    val owlqn = new OWLQN[DenseVector[Double]](10, 4, 1.0)
+    val owlqn = new OWLQN[Int, DenseVector[Double]](10, 4, 1.0)
     def optimizeWithOWLQN(init: DenseVector[Double]): Boolean = {
       val f = new DiffFunction[DenseVector[Double]] {
         def calculate(x: DenseVector[Double]) = {
