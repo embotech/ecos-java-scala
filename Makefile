@@ -1,7 +1,7 @@
 # Makefile for ECOS
 # Configuration of make process in ecos.mk
 # ECOS JNILib
-PACKAGE=com.github.ecos
+PACKAGE=io.citrine.ecos
 PACKAGE_PATH=$(subst .,/,$(PACKAGE))
 
 SRC=src/main
@@ -13,7 +13,7 @@ RESOURCES=$(SRC)/main/resources
 TARGET_C=target/
 LIB_PATH=$(RESOURCES)/lib
 
-GENERATED_HEADERS=${SRC}/native/com_github_ecos_NativeECOS.h
+GENERATED_HEADERS=${SRC}/native/io_citrine_ecos_NativeECOS.h
 #ant javah generates the NativeECOS header, implement the NativeECOS.c driver
 GENERATED_SOURCES=${SRC}/native/NativeECOS.c
 

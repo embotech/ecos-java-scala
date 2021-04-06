@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.ecos
+package io.citrine.ecos
 
 import breeze.linalg.CSCMatrix
 import breeze.optimize.LBFGS
@@ -277,7 +277,7 @@ class QpSolver(nHessian: Int, nLinear: Int = 0, diagonal: Boolean = false,
 
   def solve(H: DoubleMatrix, f: Array[Double]): (EcosStatus, Array[Double]) = {
     if (diagonal) {
-      throw new IllegalArgumentException("Qpsolver: digonal flag must be false for dense solve")
+      throw new IllegalArgumentException("Qpsolver: diagonal flag must be false for dense solve")
     }
     updateHessian(H)
     

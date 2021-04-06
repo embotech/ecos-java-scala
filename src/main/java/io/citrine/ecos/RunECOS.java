@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.ecos;
+package io.citrine.ecos;
 
 public class RunECOS {
 	public static void main(String[] args) {
