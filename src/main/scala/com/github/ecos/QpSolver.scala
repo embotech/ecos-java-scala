@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.ecos
+package io.citrine.ecos
 
 import breeze.linalg.CSCMatrix
 import breeze.optimize.LBFGS
@@ -28,6 +28,39 @@ import org.jblas.Decompose
 import scala.math.sqrt
 import scala.math.abs
 import breeze.optimize.OWLQN
+
+/**
+ * Enumerates status messages returned by ECOS, as defined in ecos.h
+ */
+sealed trait EcosStatus
+case object Optimal extends EcosStatus
+case object PrimalInfeasible extends EcosStatus
+case object DualInfeasible extends EcosStatus
+case object InaccurateOffset extends EcosStatus
+case object MaximumIterations extends EcosStatus
+case object UnreliableNumerics extends EcosStatus
+case object OutsideCone extends EcosStatus
+case object SignalInterrupt extends EcosStatus
+case object UnknownError extends EcosStatus
+
+/**
+ * Convenience method to convert ECOS's integer status to enumerated EcosStatus types.
+ */
+protected case object EcosStatus {
+  def apply(status: Int): EcosStatus = {
+    status match {
+      case 0 => Optimal
+      case 1 => PrimalInfeasible
+      case 2 => DualInfeasible
+      case 10 => InaccurateOffset
+      case -1 => MaximumIterations
+      case -2 => UnreliableNumerics
+      case -3 => OutsideCone
+      case -4 => SignalInterrupt
+      case -7 => UnknownError
+    }
+  }
+}
 
 /* QpSolver solves quadratic programming problem as follows:
  *   
@@ -242,9 +275,9 @@ class QpSolver(nHessian: Int, nLinear: Int = 0, diagonal: Boolean = false,
     }
   }
 
-  def solve(H: DoubleMatrix, f: Array[Double]): (Int, Array[Double]) = {
+  def solve(H: DoubleMatrix, f: Array[Double]): (EcosStatus, Array[Double]) = {
     if (diagonal) {
-      throw new IllegalArgumentException("Qpsolver: digonal flag must be false for dense solve")
+      throw new IllegalArgumentException("Qpsolver: diagonal flag must be false for dense solve")
     }
     updateHessian(H)
     
@@ -255,10 +288,10 @@ class QpSolver(nHessian: Int, nLinear: Int = 0, diagonal: Boolean = false,
       Aeq.rows, Aeq.cols, Aeq.data, Aeq.colPtrs, Aeq.rowIndices, beqBuilder,
       linear, cones, x)
     solveTime = solveTime + (System.nanoTime() - nativeStart)
-    (status, x.slice(0, nHessian))
+    (EcosStatus(status), x.slice(0, nHessian))
   }
 
-  def solve(Hdiag: Array[Double], f: Array[Double]): (Int, Array[Double]) = {
+  def solve(Hdiag: Array[Double], f: Array[Double]): (EcosStatus, Array[Double]) = {
     if (!diagonal) {
       throw new IllegalArgumentException("QpSolver: diagonal flag must be true for sparse solve")
     }
@@ -270,7 +303,7 @@ class QpSolver(nHessian: Int, nLinear: Int = 0, diagonal: Boolean = false,
       Aeq.rows, Aeq.cols, Aeq.data, Aeq.colPtrs, Aeq.rowIndices, beqBuilder,
       linear, cones, x)
     
-    (status, x.slice(0, nHessian))
+    (EcosStatus(status), x.slice(0, nHessian))
   }
 }
 

@@ -16,7 +16,7 @@
     <property name="include" value="${basedir}/src/main/native" />
     <property name="native" value="${basedir}/src/" />
     <property name="external" value="${basedir}/external" />
-    <property name="pkgbase" value="com.github.ecos" />
+    <property name="pkgbase" value="io.citrine.ecos" />
     
     <target name="prepare" description="create directories needed for compilation">
         <mkdir dir="${bin}" />

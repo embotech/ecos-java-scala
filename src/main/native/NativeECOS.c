@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "com_github_ecos_NativeECOS.h"
-#define CORE_PACKAGE "com/github/ecos/"
+#include "io_citrine_ecos_NativeECOS.h"
+#define CORE_PACKAGE "io/citrine/ecos/"
 
 #include "ecos.h"
 
-JNIEXPORT jint JNICALL Java_com_github_ecos_NativeECOS_EcosSolve(JNIEnv *env, jclass this, jint n, jint m, jint p, jint l, jint ncones,
+JNIEXPORT jint JNICALL Java_io_citrine_ecos_NativeECOS_EcosSolve(JNIEnv *env, jclass this, jint n, jint m, jint p, jint l, jint ncones,
 		jintArray q, jdoubleArray Gpr, jintArray Gjc, jintArray Gir,
 		jdoubleArray Apr, jintArray Ajc, jintArray Air, jdoubleArray c,
 		jdoubleArray h, jdoubleArray b, jdoubleArray result)
@@ -117,7 +117,7 @@ JNIEXPORT jint JNICALL Java_com_github_ecos_NativeECOS_EcosSolve(JNIEnv *env, jc
 	return exitflag;
 }
 
-JNIEXPORT jstring JNICALL Java_com_github_ecos_NativeECOS_EcosVer(JNIEnv *env, jclass this)
+JNIEXPORT jstring JNICALL Java_io_citrine_ecos_NativeECOS_EcosVer(JNIEnv *env, jclass this)
 {
 	extern const char * ECOS_ver();
 	jstring ecosVer = (*env)->NewStringUTF(env, ECOS_ver());
