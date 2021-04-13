@@ -29,7 +29,7 @@ JNIPATH=src/main/resources/lib/static/Mac\ OS\ X/x86_64
 endif
 ifeq ($(UNAME),Linux)
 # we're on linux
-C = $(CC) $(CFLAGS) -I/opt/bda/jdk/include -I/opt/bda/jdk/include/linux -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config $(LDFLAGS)
+C = $(CC) $(CFLAGS) -I/opt/bda/jdk/include -I/usr/lib/jvm/java-11-openjdk/include/linux -I/usr/lib/jvm/java-11-openjdk/include -I/opt/bda/jdk/include/linux -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config $(LDFLAGS)
 JNIPATH=src/main/resources/lib/static/Linux/amd64
 endif
 
