@@ -24,7 +24,7 @@ UNAME := $(shell uname)
 
 ifeq ($(UNAME), Darwin)
 # we're on apple
-C = $(CC) $(CFLAGS) -I/System/Library/Frameworks/JavaVM.framework/Headers -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config $(LDFLAGS)
+C = $(CC) $(CFLAGS) -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/darwin -Iecos/include -I./external/ldl/include -Iecos/external/amd/include -I./external/SuiteSparse_config $(LDFLAGS)
 JNIPATH=src/main/resources/lib/static/Mac\ OS\ X/x86_64
 endif
 ifeq ($(UNAME),Linux)
