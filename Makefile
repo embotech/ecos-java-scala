@@ -56,6 +56,7 @@ ecos: jniecos.o ecos.o kkt.o cone.o spla.o timer.o preproc.o splamm.o ctrlc.o eq
 	external/ldl/ldl.o external/amd/amd_global.o external/amd/amd_l_1.o \
 	external/amd/amd_l_2.o external/amd/amd_l_aat.o external/amd/amd_l_control.o external/amd/amd_l_defaults.o external/amd/amd_l_dump.o external/amd/amd_l_info.o \
 	external/amd/amd_l_order.o external/amd/amd_l_post_tree.o external/amd/amd_l_postorder.o external/amd/amd_l_preprocess.o external/amd/amd_l_valid.o
+	mkdir -p $(JNIPATH)
 	cp libecos.so $(JNIPATH)/libecos.jnilib
 jniecos.o: ${GENERATED_SOURCES} ${GENERATED_HEADERS}
 	$(C) -fPIC -c ${GENERATED_SOURCES} -o jniecos.o
