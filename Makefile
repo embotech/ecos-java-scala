@@ -52,6 +52,9 @@ AMD = amd_aat amd_1 amd_2 amd_dump amd_postorder amd_post_tree amd_defaults \
 AMDL = $(addsuffix .o, $(subst amd_,amd_l_,$(AMD)))	
 # build ECOS, make it OS indepedent
 ecos: jniecos.o ecos.o kkt.o cone.o spla.o timer.o preproc.o splamm.o ctrlc.o equil.o expcone.o wright_omega.o
+	# Tell ECOS to suppress prints.
+	sed -i 's/PRINTLEVEL (2)/PRINTLEVEL (0)/g' ecos/include/glblopts.h
+	sed -i 's/PROFILING (1)/PROFILING (0)/g' ecos/include/glblopts.h
 	$(C) -shared -o libecos.so jniecos.o ecos.o kkt.o cone.o spla.o timer.o preproc.o splamm.o ctrlc.o equil.o expcone.o wright_omega.o \
 	external/ldl/ldl.o external/amd/amd_global.o external/amd/amd_l_1.o \
 	external/amd/amd_l_2.o external/amd/amd_l_aat.o external/amd/amd_l_control.o external/amd/amd_l_defaults.o external/amd/amd_l_dump.o external/amd/amd_l_info.o \
