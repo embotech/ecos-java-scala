@@ -62,7 +62,9 @@ JNIEXPORT jint JNICALL Java_io_citrine_ecos_NativeECOS_EcosSolve(JNIEnv *env, jc
 	if (wspace != NULL) {
 		/* solve */
 		exitflag = ECOS_solve(wspace);
+#if PRINTLEVEL > 0
 		printf("exit flag %d\n", exitflag);
+#endif
 
 		/* some statistics in milliseconds */
 #if PROFILING > 0
