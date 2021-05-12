@@ -100,7 +100,7 @@ class QpSolver(nHessian: Int, nLinear: Int = 0, diagonal: Boolean = false,
   Equalities: Option[CSCMatrix[Double]] = None, Inequalities: Option[CSCMatrix[Double]] = None,
   lbFlag: Boolean = false, ubFlag: Boolean = false) {
 
-  NativeECOS.loadLibraryAndCheckErrors()
+  val nativeECOS = new NativeECOS()
   
   val n = nHessian + nLinear
   
@@ -284,7 +284,7 @@ class QpSolver(nHessian: Int, nLinear: Int = 0, diagonal: Boolean = false,
     updateLinearObjective(f)
     
     val nativeStart = System.nanoTime()
-    val status = NativeECOS.solveSocp(c, G.rows, G.cols, G.data, G.colPtrs, G.rowIndices, hBuilder,
+    val status = nativeECOS.solveSocp(c, G.rows, G.cols, G.data, G.colPtrs, G.rowIndices, hBuilder,
       Aeq.rows, Aeq.cols, Aeq.data, Aeq.colPtrs, Aeq.rowIndices, beqBuilder,
       linear, cones, x)
     solveTime = solveTime + (System.nanoTime() - nativeStart)
@@ -299,7 +299,7 @@ class QpSolver(nHessian: Int, nLinear: Int = 0, diagonal: Boolean = false,
     
     updateLinearObjective(f)
     
-    val status = NativeECOS.solveSocp(c, G.rows, G.cols, G.data, G.colPtrs, G.rowIndices, hBuilder,
+    val status = nativeECOS.solveSocp(c, G.rows, G.cols, G.data, G.colPtrs, G.rowIndices, hBuilder,
       Aeq.rows, Aeq.cols, Aeq.data, Aeq.colPtrs, Aeq.rowIndices, beqBuilder,
       linear, cones, x)
     

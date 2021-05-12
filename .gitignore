@@ -1,0 +1,18 @@
+# ignore target anywhere in tree
+target/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+
+# Metals files
+.metals/
+.bloop/
+metals.sbt
+
+# VS Code files
+.vscode/
+
+# sbt files
+.bsp/
+

@@ -18,7 +18,7 @@
 
 #include "ecos.h"
 
-JNIEXPORT jint JNICALL Java_io_citrine_ecos_NativeECOS_EcosSolve(JNIEnv *env, jclass this, jint n, jint m, jint p, jint l, jint ncones,
+JNIEXPORT jint JNICALL Java_io_citrine_ecos_NativeECOS_EcosSolve(JNIEnv *env, jobject this, jint n, jint m, jint p, jint l, jint ncones,
 		jintArray q, jdoubleArray Gpr, jintArray Gjc, jintArray Gir,
 		jdoubleArray Apr, jintArray Ajc, jintArray Air, jdoubleArray c,
 		jdoubleArray h, jdoubleArray b, jdoubleArray result)
@@ -119,7 +119,7 @@ JNIEXPORT jint JNICALL Java_io_citrine_ecos_NativeECOS_EcosSolve(JNIEnv *env, jc
 	return exitflag;
 }
 
-JNIEXPORT jstring JNICALL Java_io_citrine_ecos_NativeECOS_EcosVer(JNIEnv *env, jclass this)
+JNIEXPORT jstring JNICALL Java_io_citrine_ecos_NativeECOS_EcosVer(JNIEnv *env, jobject this)
 {
 	extern const char * ECOS_ver();
 	jstring ecosVer = (*env)->NewStringUTF(env, ECOS_ver());

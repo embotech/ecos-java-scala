@@ -8,20 +8,20 @@
 extern "C" {
 #endif
 /*
- * Class:     io_citrine_ecos_NativeECOS
- * Method:    EcosSolve
- * Signature: (IIIII[I[D[I[I[D[I[I[D[D[D[D)I
+ * Class:      io_citrine_ecos_NativeECOS
+ * Method:     EcosSolve
+ * Signature:  (IIIII[I[D[I[I[D[I[I[D[D[D[D)I
  */
 JNIEXPORT jint JNICALL Java_io_citrine_ecos_NativeECOS_EcosSolve
-  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jintArray, jdoubleArray, jintArray, jintArray, jdoubleArray, jintArray, jintArray, jdoubleArray, jdoubleArray, jdoubleArray, jdoubleArray);
+  (JNIEnv *, jobject, jint, jint, jint, jint, jint, jintArray, jdoubleArray, jintArray, jintArray, jdoubleArray, jintArray, jintArray, jdoubleArray, jdoubleArray, jdoubleArray, jdoubleArray);
 
 /*
- * Class:     io_citrine_ecos_NativeECOS
- * Method:    EcosVer
- * Signature: ()Ljava/lang/String;
+ * Class:      io_citrine_ecos_NativeECOS
+ * Method:     EcosVer
+ * Signature:  ()Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_io_citrine_ecos_NativeECOS_EcosVer
-  (JNIEnv *, jclass);
+  (JNIEnv *, jobject);
 
 #ifdef __cplusplus
 }
