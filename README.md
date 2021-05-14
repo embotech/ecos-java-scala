@@ -65,7 +65,7 @@ Add library dependency including classifier, e.g.:
 ```
 private val osNameClassifier = System.getProperty("os.name").replace(' ', '_')
 [...]
-  libraryDependencies += "io.citrine" %% "ecos" % "0.0.1-SNAPSHOT" classifier osNameClassifier
+  libraryDependencies += "io.citrine" %% "ecos" % "0.0.2" classifier osNameClassifier
 ```
 
 Native library will be loaded when instance of `NativeECOS` is created.
