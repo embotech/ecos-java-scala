@@ -10,7 +10,14 @@ ThisBuild / artifactClassifier := Some(System.getProperty("os.name").replace(' '
 lazy val commonSettings = Seq(
   javah / target := sourceDirectory.value / "native" / "include",
   crossPaths := true,
-  packageDoc / publishArtifact := false
+  packageDoc / publishArtifact := false,
+  publishTo := {
+    if (isSnapshot.value)
+      None
+    else
+      Some("Citrine Nexus" at "https://nexus.corp.citrine.io/repository/citrine/")
+  },
+  publishConfiguration := publishConfiguration.value.withOverwrite(true)
 )
 
 lazy val root = (project in file("."))
