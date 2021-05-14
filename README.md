@@ -4,9 +4,11 @@ Scala drivers to Second Order Cone Programming (ECOS) Solver.
 
 ## LICENSE
 
-This library is licensed under Apache. See  LICENSE for more details. ecos-java-scala project uses ecos as a submodule
-which is licensed  under GNU GPL V3. See https://github.com/embotech/ecos/blob/master/COPYING for more details on
-ECOS licensing. amd and ldl JNI libraries are licensed under LGPL honoring original Tim Davis's license.
+This library is licensed under Apache.
+See  LICENSE for more details.
+ecos-java-scala project uses ecos as a submodule which is licensed under GNU GPL V3.
+See https://github.com/embotech/ecos/blob/master/COPYING for more details on ECOS licensing.
+amd and ldl JNI libraries are licensed under LGPL honoring original Tim Davis's license.
 
 ## What's available in the project
 
