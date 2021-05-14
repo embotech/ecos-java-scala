@@ -6,6 +6,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Update PR check status to pending') {
+            steps {
+                setCommitStatusPending()
+            }
+        }
+
         stage('Get ecos') {
             steps {
                 sh '''
@@ -26,10 +32,11 @@ pipeline {
                 sh 'sbt -Dsbt.log.noformat=true +test'
             }
         }
-        stage('Publish to nexus') {
-            steps {
-                sh 'sbt -Dsbt.log.noformat=true +publish'
-            }
+    }
+
+    post {
+        always {
+            setCommitStatusCompleted()
         }
     }
 }
