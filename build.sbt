@@ -12,10 +12,11 @@ lazy val commonSettings = Seq(
   crossPaths := true,
   packageDoc / publishArtifact := false,
   publishTo := {
-    if (isSnapshot.value)
+    if (isSnapshot.value) {
       None
-    else
+    } else {
       Some("Citrine Nexus" at "https://nexus.corp.citrine.io/repository/citrine/")
+    }
   },
   publishConfiguration := publishConfiguration.value.withOverwrite(true)
 )
