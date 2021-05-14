@@ -6,6 +6,13 @@ pipeline {
     agent any
 
     stages {
+        stage('Get ecos') {
+            steps {
+                sh '''
+                    git submodule update --init --recursive
+                '''
+            }
+        }
         stage('Tell ECOS to suppress prints') {
             steps {
                 sh '''
