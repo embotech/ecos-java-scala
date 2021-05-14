@@ -19,6 +19,7 @@ pipeline {
                 '''
             }
         }
+
         stage('Tell ECOS to suppress prints') {
             steps {
                 sh '''
@@ -27,6 +28,7 @@ pipeline {
                 '''
             }
         }
+
         stage('Compile and test') {
             steps {
                 sh 'sbt -Dsbt.log.noformat=true +test'
