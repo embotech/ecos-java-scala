@@ -18,7 +18,7 @@ ECOS licensing. amd and ldl JNI libraries are licensed under LGPL honoring origi
 
 ### Prerequisites
 
- * Java SDK 11
+ * Java SDK 11 (for javah)
  * sbt
  * cmake
 
