@@ -6,13 +6,11 @@ pipeline {
     agent any
 
     stages {
-        /*
         stage('Update PR check status to pending') {
             steps {
                 setCommitStatusPending()
             }
         }
-	*/
 
         stage('Get ecos') {
             steps {
@@ -38,11 +36,9 @@ pipeline {
         }
     }
 
-    /*
     post {
         always {
             setCommitStatusCompleted()
         }
     }
-    */
 }
