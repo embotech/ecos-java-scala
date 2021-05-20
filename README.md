@@ -20,9 +20,9 @@ amd and ldl JNI libraries are licensed under LGPL honoring original Tim Davis's 
 
 ### Prerequisites
 
- * Java SDK 11 (for javah)
  * sbt
  * cmake
+ * [optional] Java SDK 11 (for javah)
 
 ### Clone submodules
 
