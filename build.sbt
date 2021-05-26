@@ -2,7 +2,7 @@ import Dependencies._
 
 ThisBuild / scalaVersion       := "2.12.10"
 ThisBuild / crossScalaVersions := List("2.12.10", "2.13.5")
-ThisBuild / version            := "0.0.3"
+ThisBuild / version            := "0.0.4"
 ThisBuild / organization       := "io.citrine"
 ThisBuild / organizationName   := "Citrine Informatics"
 ThisBuild / artifactClassifier := Some(System.getProperty("os.name").replace(' ', '_'))
