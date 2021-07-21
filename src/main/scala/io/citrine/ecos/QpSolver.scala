@@ -32,16 +32,26 @@ import breeze.optimize.OWLQN
 /**
  * Enumerates status messages returned by ECOS, as defined in ecos.h
  */
-sealed trait EcosStatus
+sealed trait EcosStatus {
+  val isInaccurate: Boolean = false
+}
 case object Optimal extends EcosStatus
 case object PrimalInfeasible extends EcosStatus
 case object DualInfeasible extends EcosStatus
-case object InaccurateOffset extends EcosStatus
 case object MaximumIterations extends EcosStatus
 case object UnreliableNumerics extends EcosStatus
 case object OutsideCone extends EcosStatus
 case object SignalInterrupt extends EcosStatus
 case object UnknownError extends EcosStatus
+case object OptimalInaccurate extends EcosStatus {
+  override val isInaccurate: Boolean = true
+}
+case object PrimalInfeasibleInaccurate extends EcosStatus {
+  override val isInaccurate: Boolean = true
+}
+case object DualInfeasibleInaccurate extends EcosStatus {
+  override val isInaccurate: Boolean = true
+}
 
 /**
  * Convenience method to convert ECOS's integer status to enumerated EcosStatus types.
@@ -52,7 +62,9 @@ protected case object EcosStatus {
       case 0 => Optimal
       case 1 => PrimalInfeasible
       case 2 => DualInfeasible
-      case 10 => InaccurateOffset
+      case 10 => OptimalInaccurate
+      case 11 => PrimalInfeasibleInaccurate
+      case 12 => DualInfeasibleInaccurate
       case -1 => MaximumIterations
       case -2 => UnreliableNumerics
       case -3 => OutsideCone
