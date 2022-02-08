@@ -6,7 +6,7 @@ object RunECOS extends App {
 
   println(s"ECOS version ${nativeECOSScala.EcosVer()}")
 
-  /* ECOS Example */
+  /* ECOS Example  */
 
   val n = 223
   val m = 220
